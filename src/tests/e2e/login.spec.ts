@@ -15,9 +15,10 @@ test.describe('Login Functionality', () => {
     //     // 3. Assert
     //     await expect(loginPage['page']).toHaveURL(/inventory.html/); 
     // });
+
     test('should login successfully', async ({ loginPage }) => {
         // Add Allure Metadata
-        await allure.description("Verifies that a valid user can access the inventory page.");
+        await allure.description("Verifies that a valid user can access the inventory page after logging in.");
         await allure.owner("QA Team");
         await allure.severity("CRITICAL");
         await allure.tag("Smoke");
