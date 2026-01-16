@@ -4,17 +4,17 @@ import loginData from '../../resources/testData/loginData.json';
 import * as allure from 'allure-js-commons'; // Import Allure types if needed for direct calls
 
 test.describe('Login Functionality', () => {
-
-    // test('should login successfully with valid credentials', async ({ loginPage }) => {
-    //     // 1. Arrange
-    //     await loginPage.navigate();
-
-    //     // 2. Act
-    //     await loginPage.login(loginData.validUser.username, Config.password);
-
-    //     // 3. Assert
-    //     await expect(loginPage['page']).toHaveURL(/inventory.html/); 
-    // });
+    
+    test('should have login button visible on the login page', async ({ loginPage }) => {
+        // Add Allure Metadata
+        await allure.description("Verifies that the login button is visible on the login page.");
+        await allure.owner("QA Team");
+        await allure.severity("MINOR");
+        await allure.tag("UI");
+        await loginPage.navigate();
+        const isVisible = await loginPage.isLoginButtonVisible();
+        expect(isVisible).toBeTruthy();
+    });
 
     test('should login successfully', async ({ loginPage }) => {
         // Add Allure Metadata
@@ -25,14 +25,19 @@ test.describe('Login Functionality', () => {
 
         await loginPage.navigate();
         await loginPage.login(Config.username, Config.password);
-        await expect(loginPage['page']).toHaveURL(/inventory.html/);
+        await expect(loginPage['page']).toHaveURL(/web\/index\.php\/dashboard\/index/);
     });
 
     test('should show error for locked out user', async ({ loginPage }) => {
+        // Add Allure Metadata
+        await allure.description("Verifies that a locked out user receives an appropriate error message upon login attempt.");
+        await allure.owner("QA Team");
+        await allure.severity("CRITICAL");
+        await allure.tag("Regression");
         await loginPage.navigate();
-        await loginPage.login(loginData.lockedOutUser.username, Config.password);
+        await loginPage.login(loginData.invalidUser.username, loginData.invalidUser.password);
         
         const errorText = await loginPage.getErrorMessage();
-        expect(errorText).toContain('Epic sadface: Sorry, this user has been locked out.');
+        expect(errorText).toContain('Invalid credentials');
     });
 });

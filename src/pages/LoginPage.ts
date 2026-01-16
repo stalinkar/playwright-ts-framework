@@ -2,10 +2,10 @@ import { Page } from "@playwright/test";
 import { BasePage } from "./BasePage";
 
 export class LoginPage extends BasePage {
-    private readonly USERNAME_INPUT = '#user-name';
-    private readonly PASSWORD_INPUT = '#password';
-    private readonly LOGIN_BUTTON = '#login-button';
-    private readonly ERROR_MESSAGE = '[data-test="error"]';
+    private readonly USERNAME_INPUT = "input[name='username']";
+    private readonly PASSWORD_INPUT = "input[name='password']";
+    private readonly LOGIN_BUTTON = "button[type='submit']";
+    private readonly ERROR_MESSAGE = '.oxd-text.oxd-text--p.oxd-alert-content-text';
     constructor(page: Page) {
         super(page);
     }   

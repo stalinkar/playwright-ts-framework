@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx playwright test tests/e2e --project chromium"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "@faker-js/faker": "^10.2.0",
     "@playwright/test": "^1.57.0",
     "allure-commandline": "^2.36.0",
     "allure-playwright": "^3.4.4",

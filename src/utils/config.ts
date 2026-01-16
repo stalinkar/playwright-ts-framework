@@ -5,9 +5,10 @@ import path from 'path';
 dotenv.config();
 
 export const Config = {
-    baseUrl: process.env.BASE_URL || 'https://www.saucedemo.com',
-    username: process.env.USERNAME || 'standard_user',
-    password: process.env.PASSWORD || 'secret_sauce',
+    baseUrl: process.env.BASE_URL || 'https://opensource-demo.orangehrmlive.com',
+    username: process.env.USER_NAME || 'Admin',
+    password: process.env.PASSWORD || 'admin123',
     timeout: 30000,
-    apiBaseUrl: process.env.API_URL || 'https://api.saucedemo.com'
+    apiBaseUrl: process.env.API_URL || 'https://api.saucedemo.com',
+    browser: process.env.BROWSER || 'chromium'
 };
