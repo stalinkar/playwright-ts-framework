@@ -1,5 +1,5 @@
 import { test, expect } from '../../fixtures/fixture';
-import { Config } from '../../utils/config';
+import { Config } from '../../../config/config';
 import { faker } from '@faker-js/faker';
 import * as allure from 'allure-js-commons'; // Import Allure types if needed for direct calls
 
@@ -23,7 +23,7 @@ test.describe('My Info Functionality', () => {
         // );
         let firstName = faker.person.firstName();
         await myInfoPage.changeFirstName(firstName);
-        await myInfoPage.saveChanges(); 
+        await myInfoPage.savePersonalDetailsChanges(); 
         const updatedFirstName = await myInfoPage.getFirstName();
         expect(updatedFirstName).toBe(firstName);
     });

@@ -1,5 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
-import { Config } from '@utils/config';
+import { Config } from './config/config';
 
 
 const baseURL = process.env.BASE_URL || 'http://localhost:3000';

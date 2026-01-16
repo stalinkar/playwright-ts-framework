@@ -1,5 +1,5 @@
 import { test, expect } from '../../fixtures/fixture'; // Import from YOUR fixture, not @playwright/test
-import { Config } from '../../utils/config';
+import { Config } from '../../../config/config';
 import loginData from '../../resources/testData/loginData.json';
 import * as allure from 'allure-js-commons'; // Import Allure types if needed for direct calls
 

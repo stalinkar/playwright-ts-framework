@@ -1,5 +1,5 @@
 import { APIResponse, APIRequestContext, test } from "@playwright/test";
-import { Config } from "./config";  
+import { Config } from "../../config/config";  
 
 export class APIClient {
     private request: APIRequestContext;

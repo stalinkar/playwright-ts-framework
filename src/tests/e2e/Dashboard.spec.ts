@@ -1,4 +1,4 @@
-import { Config } from '@utils/config';
+import { Config } from '../../../config/config';
 import { test, expect } from '../../fixtures/fixture';
 
 test.describe('Dashboard Functionality', () => {
