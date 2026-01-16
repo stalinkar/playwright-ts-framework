@@ -35,7 +35,7 @@ jobs:
         PASSWORD: ${{ secrets.PASSWORD }}
         # CI flag tells Playwright to use "retries" and "workers" from config
         CI: true 
-      run: npx playwright test
+      run: npm run test
 
     - name: Upload HTML Report
       if: always() # Run this even if tests fail
