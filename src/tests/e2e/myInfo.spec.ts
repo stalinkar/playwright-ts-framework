@@ -1,7 +1,9 @@
 import { test, expect } from '../../fixtures/fixture';
 import { Config } from '../../../config/config';
+import { testDataManager } from '../../resources/testDataManager';
 import { faker } from '@faker-js/faker';
 import * as allure from 'allure-js-commons'; // Import Allure types if needed for direct calls
+import { FakerDataUtil } from '@utils/fakerDataUtil';
 
 test.describe('My Info Functionality', () => {
     test('should update personal details successfully', async ({ loginPage, myInfoPage }) => {
@@ -11,19 +13,21 @@ test.describe('My Info Functionality', () => {
         await allure.severity("MAJOR");
         await allure.tag("UI");
 
+        const user = testDataManager.getUser('adminUsers');
+
         await loginPage.navigate();
-        await loginPage.login(Config.username, Config.password);
+        await loginPage.login(user.username, user.password);
         await myInfoPage.navigateToMyInfo();
         const isHeaderVisible = await myInfoPage.isMyInfoHeaderVisible();
-        expect(isHeaderVisible).toBeTruthy(); 
+        expect(isHeaderVisible).toBeTruthy();
         // await myInfoPage.updatePersonalDetails(
         //     myInfoData.personalDetails.firstName,
         //     myInfoData.personalDetails.lastName,
         //     myInfoData.personalDetails.employeeId
         // );
-        let firstName = faker.person.firstName();
+        let firstName = FakerDataUtil.generateFirstName();
         await myInfoPage.changeFirstName(firstName);
-        await myInfoPage.savePersonalDetailsChanges(); 
+        await myInfoPage.savePersonalDetailsChanges();
         const updatedFirstName = await myInfoPage.getFirstName();
         expect(updatedFirstName).toBe(firstName);
     });

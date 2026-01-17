@@ -1,0 +1,32 @@
+{
+    "standardUsers": [
+        {
+            "username": "TestUser",
+            "password": "Testuser@1234"
+        },
+        {
+            "username": "RestUser",
+            "password": "Restuser@1234"
+        }
+    ],
+    "adminUsers": [
+        {
+            "username": "Admin",
+            "password": "admin123"
+        },
+        {
+            "username": "SuperAdmin",
+            "password": "superadmin@123"
+        }
+    ],
+    "invalidUsers": [
+        {
+            "username": "InvalidUser",
+            "password": "invalid@123"
+        },
+        {
+            "username": "Admin_Locked",
+            "password": "invalid123"
+        }
+    ]
+}
