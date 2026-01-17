@@ -1,5 +1,5 @@
 import { Page } from '@playwright/test';
-import { BasePage } from './BasePage';
+import { BasePage } from './BasePage.page';
 import { th } from '@faker-js/faker/.';
 
 export class MyInfoPage extends BasePage {
@@ -8,10 +8,10 @@ export class MyInfoPage extends BasePage {
         super(page);
     }
     async isMyInfoHeaderVisible(): Promise<boolean> {
-        return await this.isElementVisible(this.MY_INFO_HEADER, 'My Info Header');
+        return await this.isVisible(this.MY_INFO_HEADER, 'My Info Header');
     }
     async navigateToMyInfo() {
-        await this.clickElement('a[href="/web/index.php/pim/viewMyDetails"]', 'My Info Link');
+        await this.click('a[href="/web/index.php/pim/viewMyDetails"]', 'My Info Link');
         await this.page.waitForLoadState('networkidle');
     }
 
@@ -23,12 +23,12 @@ export class MyInfoPage extends BasePage {
 
     async changeFirstName(newFirstName: string) {
         const FIRST_NAME_INPUT = 'input[name="firstName"]';
-        await this.fillInput(FIRST_NAME_INPUT, newFirstName, 'First Name Input');
+        await this.fill(FIRST_NAME_INPUT, newFirstName, 'First Name Input');
     }
 
     async savePersonalDetailsChanges() {
         const PD_SAVE_BUTTON = 'button[type="submit"]:nth-child(2)';
-        await this.clickElement(PD_SAVE_BUTTON, 'Save Button');
+        await this.click(PD_SAVE_BUTTON, 'Save Button');
         await this.page.waitForLoadState('networkidle');
     }
 }

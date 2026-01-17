@@ -28,9 +28,9 @@ export abstract class BasePage {
      * @arguments {Locator} locator - The locator of the element to click
      * @arguments {string} description - A description of the element for logging
      * @example
-     * await this.clickElement(this.submitButton, 'Submit Button');
+     * await this.click(this.submitButton, 'Submit Button');
      */
-    protected async clickElement(selector: string, description: string) {
+    protected async click(selector: string, description: string) {
         const locator = this.page.locator(selector);
         if (arguments.length < 2 || !description) {
             await test.step(`Click on ${locator}`, async () => {
@@ -44,7 +44,7 @@ export abstract class BasePage {
             });
         }
     }
-    protected async fillInput(selector: string, value: string, description: string) {
+    protected async fill(selector: string, value: string, description: string) {
         const locator = this.page.locator(selector);
         if (arguments.length < 2 || !description) {
             await test.step(`Fill input ${locator} with ${value}`, async () => {
@@ -58,7 +58,7 @@ export abstract class BasePage {
             });
         }
     }
-    protected async getElementText(selector: string, description: string): Promise<string> {
+    protected async getText(selector: string, description: string): Promise<string> {
         const locator = this.page.locator(selector);
         if (arguments.length < 2 || !description) {
             return await test.step(`Get text from ${locator}`, async () => {
@@ -73,7 +73,7 @@ export abstract class BasePage {
         }
     }
 
-    protected async isElementVisible(selector: string, description: string): Promise<boolean> {
+    protected async isVisible(selector: string, description: string): Promise<boolean> {
         const locator = this.page.locator(selector);
         return await test.step(`Check if ${description} is visible`, async () => {
             try {
