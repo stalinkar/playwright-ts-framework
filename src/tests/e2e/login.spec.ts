@@ -24,7 +24,7 @@ test.describe('Login Functionality', () => {
         await allure.severity("CRITICAL");
         await allure.tag("Smoke");
 
-        const user = testDataManager.getUser('standardUsers');
+        const user = testDataManager.getUser('adminUsers');
 
         await loginPage.navigate();
         await loginPage.login(user.username, user.password);

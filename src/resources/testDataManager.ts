@@ -19,7 +19,7 @@ class TestDataManager {
     constructor() {
         const filePath = path.resolve(
             __dirname,
-            `users/${config.env}.users.json`
+            `users/${config.env}.loginData.json`
         );
 
 
