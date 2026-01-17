@@ -1,0 +1,22 @@
+{
+    "standardUsers": [
+        {
+            "username": "TestUser",
+            "password": "Testuser@1234"
+        },
+        {
+            "username": "RestUser",
+            "password": "Restuser@1234"
+        }
+    ],
+    "adminUsers": [
+        {
+            "username": "Admin",
+            "password": "admin123"
+        },
+        {
+            "username": "SuperAdmin",
+            "password": "superadmin@123"
+        }
+    ]
+}

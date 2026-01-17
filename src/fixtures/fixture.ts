@@ -1,11 +1,13 @@
-import { test as base } from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
-import { DashboardPage } from '../pages/DashboardPage';
-import { MyInfoPage } from '@pages/MyInfo';
+import { test as base, BrowserContext, Page } from '@playwright/test';
+import { LoginPage } from '../pages/login.page';
+import { DashboardPage } from '../pages/dashboard.page';
+import { MyInfoPage } from '@pages/MyInfo.page';
 import { APIClient } from '../utils/APIClient';
 
 // 1. Declare the types of fixtures
 type MyFixtures = {
+    context: BrowserContext;
+    page: Page;
     loginPage: LoginPage;
     dashboardPage: DashboardPage;
     myInfoPage: MyInfoPage;
@@ -14,6 +16,18 @@ type MyFixtures = {
 
 // 2. Extend the base test to include fixtures
 export const test = base.extend<MyFixtures>({
+
+    context: async ({ browser }, use) => {
+        const context = await browser.newContext();
+        await use(context);
+        await context.close();
+    },
+
+    page: async ({ context }, use) => {
+        const page = await context.newPage();
+        await use(page);
+        await page.close();
+    },
     
     // Define the loginPage fixture (Standard page injection)
     loginPage: async ({ page }, use) => {

@@ -1,0 +1,28 @@
+{
+    "standardUsers": [
+        {
+            "username": "Admin",
+            "password": "admin123"
+        }
+    ],
+    "adminUsers": [
+        {
+            "username": "Admin",
+            "password": "admin123"
+        },
+        {
+            "username": "Admin",
+            "password": "admin123"
+        }
+    ],
+    "invalidUsers": [
+        {
+            "username": "InvalidUser",
+            "password": "invalid@123"
+        },
+        {
+            "username": "Admin_Locked",
+            "password": "invalid123"
+        }
+    ]
+}

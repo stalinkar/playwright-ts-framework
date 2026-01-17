@@ -1,5 +1,5 @@
 import { Page } from '@playwright/test';
-import { BasePage } from './BasePage';
+import { BasePage } from './BasePage.page';
 
 export class DashboardPage extends BasePage {
     private readonly DASHBOARD_HEADER = 'h6.oxd-text.oxd-text--h6.oxd-topbar-header-breadcrumb-module';
@@ -8,6 +8,6 @@ export class DashboardPage extends BasePage {
         super(page);
     }
     async isHeaderVisible(): Promise<boolean> {
-        return await this.isElementVisible(this.DASHBOARD_HEADER, 'Dashboard Header');
+        return await this.isVisible(this.DASHBOARD_HEADER, 'Dashboard Header');
     }
 }

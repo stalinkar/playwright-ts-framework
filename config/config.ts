@@ -5,10 +5,13 @@ import path from 'path';
 dotenv.config();
 
 export const Config = {
+    env: process.env.NODE_ENV || 'qa',
     baseUrl: process.env.BASE_URL || 'https://opensource-demo.orangehrmlive.com',
     username: process.env.USER_NAME || 'Admin',
     password: process.env.PASSWORD || 'admin123',
     timeout: 30000,
     apiBaseUrl: process.env.API_URL || 'https://api.saucedemo.com',
-    browser: process.env.BROWSER || 'chromium'
+    browser: process.env.BROWSER || 'chromium',
+    retries: Number(process.env.RETRIES || 1),
+    headless: (process.env.HEADLESS || 'true') === 'true',
 };

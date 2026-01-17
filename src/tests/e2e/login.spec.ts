@@ -1,6 +1,7 @@
 import { test, expect } from '../../fixtures/fixture'; // Import from YOUR fixture, not @playwright/test
-import { Config } from '../../../config/config';
-import loginData from '../../resources/testData/loginData.json';
+// import { Config } from '../../../config/config';
+// import loginData from '../../resources/data/qa.loginData.json';
+import { testDataManager } from '../../resources/testDataManager';
 import * as allure from 'allure-js-commons'; // Import Allure types if needed for direct calls
 
 test.describe('Login Functionality', () => {
@@ -23,8 +24,10 @@ test.describe('Login Functionality', () => {
         await allure.severity("CRITICAL");
         await allure.tag("Smoke");
 
+        const user = testDataManager.getUser('standardUsers');
+
         await loginPage.navigate();
-        await loginPage.login(Config.username, Config.password);
+        await loginPage.login(user.username, user.password);
         await expect(loginPage['page']).toHaveURL(/web\/index\.php\/dashboard\/index/);
     });
 
@@ -34,9 +37,12 @@ test.describe('Login Functionality', () => {
         await allure.owner("QA Team");
         await allure.severity("CRITICAL");
         await allure.tag("Regression");
+
+        const user = testDataManager.getUser('invalidUsers');
+
         await loginPage.navigate();
-        await loginPage.login(loginData.invalidUser.username, loginData.invalidUser.password);
-        
+        await loginPage.login(user.username, user.password);
+
         const errorText = await loginPage.getErrorMessage();
         expect(errorText).toContain('Invalid credentials');
     });

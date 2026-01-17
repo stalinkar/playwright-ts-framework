@@ -1,5 +1,5 @@
 import { Page } from "@playwright/test";
-import { BasePage } from "./BasePage";
+import { BasePage } from "./BasePage.page";
 
 export class LoginPage extends BasePage {
     private readonly USERNAME_INPUT = "input[name='username']";
@@ -13,9 +13,9 @@ export class LoginPage extends BasePage {
         await this.navigateTo('/');
     }   
     async login(username: string, password: string) {
-        await this.fillInput(this.USERNAME_INPUT, username, 'Username Input');
-        await this.fillInput(this.PASSWORD_INPUT, password, 'Password Input');
-        await this.clickElement(this.LOGIN_BUTTON, 'Login Button');
+        await this.fill(this.USERNAME_INPUT, username, 'Username Input');
+        await this.fill(this.PASSWORD_INPUT, password, 'Password Input');
+        await this.click(this.LOGIN_BUTTON, 'Login Button');
     }   
     async getErrorMessage(): Promise<string> {
         const locator = this.page.locator(this.ERROR_MESSAGE);
@@ -23,6 +23,6 @@ export class LoginPage extends BasePage {
     }
 
     async isLoginButtonVisible(): Promise<boolean> {
-        return await this.isElementVisible(this.LOGIN_BUTTON, 'Login Button');
+        return await this.isVisible(this.LOGIN_BUTTON, 'Login Button');
     }
 }
