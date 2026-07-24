@@ -1,8 +1,9 @@
 import { test as base, BrowserContext, Page } from '@playwright/test';
 import { LoginPage } from '../pages/login.page';
 import { DashboardPage } from '../pages/dashboard.page';
-import { MyInfoPage } from '@pages/MyInfo.page';
+import { AddContactPage } from '@pages/AddContact.page';
 import { APIClient } from '../utils/APIClient';
+import { ContactListPage } from '@pages/ContactList.page';
 
 // 1. Declare the types of fixtures
 type MyFixtures = {
@@ -10,7 +11,8 @@ type MyFixtures = {
     page: Page;
     loginPage: LoginPage;
     dashboardPage: DashboardPage;
-    myInfoPage: MyInfoPage;
+    addContactPage: AddContactPage;
+    contactListPage: ContactListPage;
     apiClient: APIClient;
 };
 
@@ -45,10 +47,15 @@ export const test = base.extend<MyFixtures>({
         const dashboardPage = new DashboardPage(page);
         await use(dashboardPage);
     },
-    // Define the myInfoPage fixture
-    myInfoPage: async ({ page }, use) => {
-        const myInfoPage = new MyInfoPage(page);
-        await use(myInfoPage);
+    // Define the addContactPage fixture
+    addContactPage: async ({ page }, use) => {
+        const addContactPage = new AddContactPage(page);
+        await use(addContactPage);
+    },
+    // Define the contactListPage fixture
+    contactListPage: async ({ page }, use) => {
+        const contactListPage = new ContactListPage(page);
+        await use(contactListPage);
     },
     // API Client injection
     apiClient: async ({ request }, use) => {

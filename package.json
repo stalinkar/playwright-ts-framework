@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test tests/e2e --project chromium",
+    "test": "npx playwright test tests --project chromium",
     "test:ui": "npx playwright test tests/e2e --project chromium --ui",
+    "test:api": "npx playwright test tests/api --project chromium",
+    "test:debug": "npx playwright test tests/e2e --project chromium --ui",
     "test:headed": "npx playwright test tests/e2e --project chromium --headed"
   },
   "keywords": [],

@@ -1,6 +1,10 @@
 import { faker } from '@faker-js/faker';
 
 export class FakerDataUtil {
+    static generateCountry: any;
+    static generateState(): string {
+        throw new Error('Method not implemented.');
+    }
     static generateFirstName(): string {
         return faker.person.firstName();
     }

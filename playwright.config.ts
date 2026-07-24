@@ -1,5 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 import { Config } from './config/config';
+import authSetup from 'src/auth/auth.setup';
 
 
 const baseURL = process.env.BASE_URL || 'http://localhost:3000';
@@ -11,6 +12,7 @@ export default defineConfig({
     testDir: './src/tests',
     timeout: 60_000,
     expect: { timeout: 5000 },
+    globalSetup: require.resolve('./src/auth/auth.setup'),
     fullyParallel: true,
     forbidOnly: !!process.env.CI,
     retries,
@@ -28,7 +30,8 @@ export default defineConfig({
         navigationTimeout: 30_000,
         trace: 'on-first-retry',
         screenshot: 'only-on-failure',
-        video: 'retain-on-failure'
+        video: 'retain-on-failure',
+        storageState: 'storage/standardUser.json'
     },
     projects: [
         { name: 'chromium', use: { ...devices['Desktop Chrome'] } },

@@ -1,27 +1,31 @@
 {
     "standardUsers": [
         {
-            "username": "Admin",
-            "password": "admin123"
+            "email": "test.user@dummy.com",
+            "password": "Abcd@123"
+        },
+        {
+            "email": "test.user@dummy.com",
+            "password": "Abcd@123"
         }
     ],
     "adminUsers": [
         {
-            "username": "Admin",
-            "password": "admin123"
+            "email": "test.user@dummy.com",
+            "password": "Abcd@123"
         },
         {
-            "username": "Admin",
-            "password": "admin123"
+            "email": "test.user@dummy.com",
+            "password": "Abcd@123"
         }
     ],
     "invalidUsers": [
         {
-            "username": "InvalidUser",
+            "email": "InvalidUser",
             "password": "invalid@123"
         },
         {
-            "username": "Admin_Locked",
+            "email": "Admin_Locked",
             "password": "invalid123"
         }
     ]

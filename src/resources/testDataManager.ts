@@ -4,7 +4,7 @@ import { Config as config } from '../../config/config';
 
 
 export type User = {
-    username: string;
+    email: string;
     password: string;
 };
 

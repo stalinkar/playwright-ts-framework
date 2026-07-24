@@ -6,11 +6,11 @@ dotenv.config();
 
 export const Config = {
     env: process.env.NODE_ENV || 'qa',
-    baseUrl: process.env.BASE_URL || 'https://opensource-demo.orangehrmlive.com',
-    username: process.env.USER_NAME || 'Admin',
-    password: process.env.PASSWORD || 'admin123',
+    baseUrl: process.env.BASE_URL || 'https://thinking-tester-contact-list.herokuapp.com',
+    email: process.env.EMAIL || 'test.user@dummy.com',
+    password: process.env.PASSWORD || 'Abcd@123',
     timeout: 30000,
-    apiBaseUrl: process.env.API_URL || 'https://api.saucedemo.com',
+    apiBaseUrl: process.env.API_BASE_URL || 'https://thinking-tester-contact-list.herokuapp.com',
     browser: process.env.BROWSER || 'chromium',
     retries: Number(process.env.RETRIES || 1),
     headless: (process.env.HEADLESS || 'true') === 'true',
